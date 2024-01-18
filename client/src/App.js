@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import './App.css';
-import { Radio, Form, Input, Select, Space,Button } from 'antd'
+import { Radio, Form, Input, Select, Space, Button, List, Typography } from 'antd'
 
 function App() {
-  const [items, setItems] = useState([])
+  const [items, setItems] = useState([
+  ])
 
   const [action, setAction] = useState('getAll');
   const handleActionChange = (e) => {
@@ -13,6 +14,10 @@ function App() {
   // Make HTTP request to /getAll endpoint
   const getAll = () => {
     console.log("getting all items...")
+
+
+
+    // make sure to use the response to update the 'items' state!
     
   }
 
@@ -145,7 +150,18 @@ function App() {
         </div>
 
         <div className="Collection">
-
+          <List
+            header={<div>My List</div>}
+            bordered
+            dataSource={items}
+            size="large"
+            renderItem={(item) => (
+              <List.Item>
+                <div style={{"marginRight": "100px"}}>{item.name}</div>
+                <div>{item.category}</div>
+              </List.Item>
+            )}
+          />
         </div>
 
       </div>

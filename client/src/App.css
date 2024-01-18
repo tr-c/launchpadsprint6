@@ -24,6 +24,8 @@
 .Collection {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding-right: 10%;
 
   width: 50%;
 
@@ -34,4 +36,18 @@
   flex-direction: column;
 
   margin-top: 5%;
+}
+
+.CollectionItem {
+  width: 90%;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  /* background-color: green; */
+
+  font-weight: bold;
+  font-size: 30px;
 }
