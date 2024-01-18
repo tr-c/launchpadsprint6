@@ -24,27 +24,27 @@ app.get("/example", (req, res, next) => {
     res.json({ "message": "Welcome to your Shopping List!" });
 });
 
-// ROUTE #1 - Get all shopping items
+// TODO ROUTE #1 - Get all shopping items
 
 
 
 
-// ROUTE #2 - Add a new shopping item
+// TODO ROUTE #2 - Add a new shopping item
 
 
 
 
-// ROUTE #3 - Remove an existing shopping item
+// TODO ROUTE #3 - Remove an existing shopping item
 
 
 
 
-// ROUTE #4 - Update an existing shopping item (harder)
+// TODO ROUTE #4 - Update an existing shopping item (harder)
 
 
 
 
-// ROUTE #5 - Get shopping items that satisfy a condition/filter (harder)
+// TODO ROUTE #5 - Get shopping items that satisfy a condition/filter (harder)
 
 
 

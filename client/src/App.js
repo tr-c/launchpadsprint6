@@ -2,7 +2,12 @@ import { useState } from 'react'
 import './App.css';
 import { Radio, Form, Input, Select, Space, Button, List, Typography } from 'antd'
 
+//library to help make HTTP Requests
+import axios from "axios"
+
 function App() {
+  const BASE_URL = "<<CHANGE THIS TO THE URL OF YOUR SERVER>>"
+
   const [items, setItems] = useState([
   ])
 
@@ -11,37 +16,30 @@ function App() {
     setAction(e.target.value);
   };
 
-  // Make HTTP request to /getAll endpoint
-  const getAll = () => {
-    console.log("getting all items...")
-
-
+  // TODO: Make HTTP request to /getAll endpoint
+  const getAll = async () => {
 
     // make sure to use the response to update the 'items' state!
     
   }
 
-  // Make HTTP request to /add endpoint
-  const add = (params) => {
-    console.log("adding item...", params)
+  // TODO: Make HTTP request to /add endpoint
+  const add = async (params) => {
 
   }
 
-  // Make HTTP request to /delete endpoint
-  const remove = (params) => {
-    console.log("deleting item...", params)
+  // TODO: Make HTTP request to /delete endpoint
+  const remove = async (params) => {
 
   }
 
-  // Make HTTP request to /update endpoint
-  const update = (params) => {
-    console.log("updating item...", params)
+  // TODO: Make HTTP request to /update endpoint
+  const update = async (params) => {
 
   }
 
-  // Make HTTP request to /getByCat endpoint
-  const getByCat = (params) => {
-    console.log("getting item by cat...", params)
+  // TODO: Make HTTP request to /getByCat endpoint
+  const getByCat = async (params) => {
 
   }
 
