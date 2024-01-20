@@ -6,7 +6,7 @@ import { Radio, Form, Input, Select, Space, Button, List, Typography } from 'ant
 import axios from "axios"
 
 function App() {
-  const BASE_URL = "<<CHANGE THIS TO THE URL OF YOUR SERVER>>"
+  const BASE_URL = "http://localhost:3000"
 
   const [items, setItems] = useState([
   ])
@@ -18,28 +18,116 @@ function App() {
 
   // TODO: Make HTTP request to /getAll endpoint
   const getAll = async () => {
+    try {
+      // GET Request
+      const response = await axios.get(BASE_URL + "/getAll")
+        .then((response) => {
+          // make sure to use the response to update the 'items' state!
+          setItems(response.data)
+          
+        }).catch(() => {
 
-    // make sure to use the response to update the 'items' state!
-    
+        })
+        	
+			} catch (error) {
+      // Handle any errors
+      console.error('Failed to fetch data: ', error);
+    }
   }
 
-  // TODO: Make HTTP request to /add endpoint
+  //TODO: Make HTTP request to /add endpoint
   const add = async (params) => {
+    try {
+      // GET Request
+      const response = await axios.post(BASE_URL + "/add", {
+        name: params["name"],
+        category: params["category"]
+      })
+        .then((response) => {
+          // make sure to use the response to update the 'items' state!
+          setItems(response.data)
+
+        }).catch(() => {
+
+        })
+
+    } catch (error) {
+      // Handle any errors
+      console.error('Failed to fetch data: ', error);
+    }
 
   }
 
   // TODO: Make HTTP request to /delete endpoint
   const remove = async (params) => {
+    try {
+      const response = await axios.delete(BASE_URL + "/remove", {
+        data: {
+          name: params["existingName"],
+        }
+      })
+        .then((response) => {
+          // make sure to use the response to update the 'items' state!
+          setItems(response.data)
+
+        }).catch(() => {
+
+        })
+
+    } catch (error) {
+      // Handle any errors
+      console.error('Failed to fetch data: ', error);
+    }
+    
 
   }
 
   // TODO: Make HTTP request to /update endpoint
   const update = async (params) => {
+    try {
+      const response = await axios.put(BASE_URL + "/update", {
+          existingName: params["existingName"],
+          newName: params["newName"],
+          newCategory: params["newCategory"],
+        }
+      )
+        .then((response) => {
+          console.log(response)
+          // make sure to use the response to update the 'items' state!
+          setItems(response.data)
+
+        }).catch(() => {
+
+        })
+
+    } catch (error) {
+      // Handle any errors
+      console.error('Failed to fetch data: ', error);
+    }
 
   }
 
   // TODO: Make HTTP request to /getByCat endpoint
   const getByCat = async (params) => {
+    try {
+      // GET Request
+      const response = await axios.get(BASE_URL + "/getByCat", { 
+        params: {
+          category: params["category"],
+        }
+      })
+        .then((response) => {
+          // make sure to use the response to update the 'items' state!
+          setItems(response.data)
+
+        }).catch(() => {
+
+        })
+
+    } catch (error) {
+      // Handle any errors
+      console.error('Failed to fetch data: ', error);
+    }
 
   }
 
