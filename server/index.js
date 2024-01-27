@@ -7,6 +7,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const port = 3000;
+const db_url = "mongodb+srv://tigerking:wphPpplcHRwNdv29@riceapps2020-21.ppsrv.gcp.mongodb.net/launchpad_2023";
+mongoose
+  .connect(mongoDBURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("MongoDB connected");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 const server = app.listen(port, () => {
     const addr = server.address();
     console.log(`🛸 Server listening at http://localhost:${addr.port}`);
@@ -24,19 +36,34 @@ app.get("/example", (req, res, next) => {
     res.json({ "message": "Welcome to your Shopping List!" });
 });
 
+
 // TODO ROUTE #1 - Get all shopping items
 // /getAll - returns all the documents in the database
-app.get("/getAll", (req, res, next) => {
-    res.json(database);
+// app.get("/getAll", (req, res, next) => {
+//     res.json(database);
+// });
+
+const Item = require('/models/Item')
+// Get all items
+Item.find((err, items) => {
+  if (err) return handleError(err);
+  // 'items' will be an array of Item documents.
 });
+
 
 
 // TODO ROUTE #2 - Add a new shopping item
 // /add - adds a new document to the database
-app.post('/add', (req, res, next) => {
-    database.push({id: database.length + 1, ...req.body})
-    res.json(database);
-})
+// app.post('/add', (req, res, next) => {
+//     database.push({id: database.length + 1, ...req.body})
+//     res.json(database);
+// })
+
+newItem.save((err, savedItem) => {
+  if (err) return handleError(err);
+  // 'savedItem' is the document saved to the database.
+});
+
 
 
 // TODO ROUTE #3 - Remove an existing shopping item
